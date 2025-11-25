@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibtissam Abdouni - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 160px;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            object-fit: cover;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6em;
+            color: #395aea;
+            flex-shrink: 20;
+            margin-left: 60px;
+            
+        }
+
+        .header-info {
+            flex: 8;
+            text-align: left;
+            
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+        }
+
+        nav li {
+            margin: 5px 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid #667eea;
+            text-align:justify;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .demo-placeholder {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 15px;
+            color: #667eea;
+            font-style: italic;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+        }
+
+        .experience-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .date {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .experience-item ul li {
+            margin: 8px 0;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .header-info {
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+                font-size: 4em;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/image.jpg" alt="Ibtissam Abdouni" class="profile-photo">
+            <div class="header-info">
+                <h1>Ibtissam Abdouni</h1>
+                <p>Élève Ingénieure en Génie Logiciel - 5ème année</p>
+                <p>Recherche un PFE en Développement Informatique</p>
+                <div class="contact-links">
+                    <a href="mailto:ibtissamabdouni530@gmail.com">📧 Email</a>
+                    <a href="https://www.linkedin.com/in/ibtissam-abdouni-88a315254/" target="_blank">💼 LinkedIn</a>
+                    <a href="tel:0658946292">📱 06 58 94 62 92</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#experience">Expérience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>À Propos</h2>
+            <div class="about-content">
+                <p>
+                    Passionnée par le développement logiciel et l'innovation technologique, je suis actuellement en 5ème année d'ingénierie à la Faculté des Sciences et Techniques de Mohammedia, spécialisée en ingénierie des logiciels et intégration des systèmes informatiques.
+                </p>
+                <p style="margin-top: 20px;">
+                    Mon parcours m'a permis de développer une expertise solide en développement web full-stack, en intelligence artificielle, et en gestion de projets informatiques. À travers mes stages et projets académiques, j'ai acquis une expérience pratique dans la conception et le développement d'applications innovantes répondant à des besoins réels.
+                </p>
+                <p style="margin-top: 20px;">
+                    Je recherche actuellement un projet de fin d'études (PFE) stimulant où je pourrai mettre en pratique mes compétences techniques et contribuer à des solutions impactantes au sein d'une équipe dynamique.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projets Réalisés</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🛍️ CoopSouk</h3>
+                    <p>Plateforme e-commerce complète dédiée aux coopératives marocaines, offrant un catalogue centralisé des produits artisanaux avec espace personnalisé pour chaque coopérative et système de paiement en ligne sécurisé.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ASP.Net Core</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Stripe API</span>
+                    </div>
+                    <div class="demo-placeholder">
+                        📷 Démo à venir
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🗺️ MoroccoGuide</h3>
+                    <p>Application mobile intelligente avec chatbot touristique intégrant des informations culturelles, des itinéraires optimisés, et des recommandations personnalisées (places à visitées & hôtels & événements) basées sur l'IA avec intégration de cartes interactives.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">IA</span>
+                    </div>
+                    <div class="demo-placeholder">
+                        📷 Démo à venir
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🚦 Régulation Intelligente du Trafic</h3>
+                    <p>Plateforme smart city innovante utilisant l'intelligence artificielle pour la prédiction des accidents avec une précision supérieure à 90% et la régulation du trafic en temps réel pour optimiser la circulation urbaine.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SUMO</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">IA</span>
+                    </div>
+                    <div class="demo-placeholder">
+                        📷 Démo à venir
+                    </div>
+                </div>
+
+               
+
+                <div class="project-card">
+                    <h3>🤝 CollabConnect</h3>
+                    <p>Plateforme collaborative complète facilitant le travail d'équipe avec espaces de discussion, partage de connaissances, inscription à des formations et événements, et gestion centralisée de projets.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="demo-placeholder">
+                        📷 Démo à venir
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🛒 Plateforme E-commerce</h3>
+                    <p>Solution e-commerce complète avec gestion utilisateurs et administrateurs, CRUD des produits, système de commandes, et suivi en temps réel pour les clients.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    <div class="demo-placeholder">
+                        📷 Démo à venir
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Compétences Techniques</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>🌐 Développement Web</h3>
+                    <ul class="skill-list">
+                        <li>React.js & React Native</li>
+                        <li>Node.js & Express.js</li>
+                        <li>ASP.Net Core & .Net</li>
+                        <li>HTML/CSS & Bootstrap</li>
+                        <li>PHP & JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💾 Bases de Données</h3>
+                    <ul class="skill-list">
+                        <li>MySQL & SQL Server</li>
+                        <li>MongoDB (NoSQL)</li>
+                        <li>Oracle & PL/SQL</li>
+                        <li>Modélisation de données</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💻 Langages de Programmation</h3>
+                    <ul class="skill-list">
+                        <li>Java & C#</li>
+                        <li>Python & Flask</li>
+                        <li>C & C++</li>
+                        <li>Dart (Flutter)</li>
+                        <li>SQL & Bash</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Business Intelligence</h3>
+                    <ul class="skill-list">
+                        <li>Power BI</li>
+                        <li>SSIS (Integration Services)</li>
+                        <li>SSAS (Analysis Services)</li>
+                        <li>SSMS (Management Studio)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🎨 Modélisation & Design</h3>
+                    <ul class="skill-list">
+                        <li>UML (Unified Modeling Language)</li>
+                        <li>Merise</li>
+                        <li>Architecture logicielle</li>
+                        <li>Conception orientée objet</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🤝 Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Communication efficace</li>
+                        <li>Travail d'équipe</li>
+                        <li>Gestion de projet</li>
+                        <li>Résolution de problèmes</li>
+                        <li>Langues : Arabe, Français, Anglais</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Expérience Professionnelle</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Stage de Fin d'Année - AL Omrane</h3>
+                    <span class="date">2025 • 2 mois • Casablanca</span>
+                    <p><strong>Automatisation du calcul de révision des prix des marchés publics</strong></p>
+                    <ul>
+                        <li>Conception et développement d'une application web complète pour automatiser les processus complexes de calcul de révision de prix</li>
+                        <li>Implémentation d'un système d'extraction automatique de données depuis des documents scannés en utilisant un modèle IA local (Gamma-2b)</li>
+                        <li>Développement d'une interface utilisateur intuitive avec React.js</li>
+                        <li>Création d'une API robuste avec Node.js et gestion de base de données MySQL</li>
+                        <li>Intégration de scripts Python pour le traitement de données et l'IA</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+         <section id="contact">
+            <h2>Me Contacter</h2>
+            <div class="about-content" style="text-align: center;">
+                <p style="font-size: 1.2em; margin-bottom: 35px; color: #555;">
+                    Je suis disponible pour discuter d'opportunités de PFE ou de collaboration sur des projets innovants.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0;">
+                    <a href="mailto:ibtissamabdouni530@gmail.com" style="text-decoration: none; color: #667eea; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em;">📧</div>
+                        <span style="font-weight: 600;">ibtissamabdouni530@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibtissam-abdouni-88a315254/" target="_blank" style="text-decoration: none; color: #667eea; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em;">💼</div>
+                        <span style="font-weight: 600;">LinkedIn</span>
+                    </a>
+                    <a href="tel:0658946292" style="text-decoration: none; color: #667eea; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em;">📱</div>
+                        <span style="font-weight: 600;">06 58 94 62 92</span>
+                    </a>
+                </div>
+                <p style="margin-top: 30px; color: #667eea; font-size: 1.1em; font-weight: 600;">
+                    📍 Casablanca, Maroc
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ibtissam Abdouni - Tous droits réservés</p>
+        <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+            Élève Ingénieure en Génie Logiciel | FST Mohammedia
+        </p>
+    </footer>
+</body>
+</html>
