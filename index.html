@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ibtissam Abdouni - Portfolio</title>
-
-<!-- ⬇️ AJOUTE CES 11 LIGNES ICI ⬇️ -->
-<!-- Google Analytics GA4 Code - Ibtissam Abdouni -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HTJS617BFQ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTJS617BFQ"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-HTJS617BFQ');
 </script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #4cc9f0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -47,20 +55,24 @@
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow);
             object-fit: cover;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 6em;
-            color: #395aea;
-            flex-shrink: 20;
-            margin-left: 60px;
-            
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: var(--transition);
+            margin-left: 40px;
         }
 
+        .profile-photo:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
         .header-info {
             flex: 8;
             text-align: left;
@@ -89,15 +101,23 @@
         .contact-links a {
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: rgba(255,255,255,0.2);
-            border-radius: 25px;
-            transition: all 0.3s;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-weight: 500;
         }
 
         .contact-links a:hover {
             background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         nav {
@@ -114,6 +134,8 @@
             justify-content: center;
             flex-wrap: wrap;
             padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         nav li {
@@ -124,11 +146,29 @@
             text-decoration: none;
             color: #667eea;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            border-radius: 2px;
         }
 
         nav a:hover {
             color: #764ba2;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         .container {
@@ -166,8 +206,10 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            text-align:justify;
+           
         }
 
         .about-content p {
@@ -238,21 +280,30 @@
 
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .skill-category {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .skill-category h3 {
-            color: #667eea;
+            color: var(--primary);
             margin-bottom: 20px;
             font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .skill-list {
@@ -260,17 +311,23 @@
         }
 
         .skill-list li {
-            padding: 8px 0;
-            color: #555;
+            padding: 10px 0;
+            color: var(--gray);
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
+            transition: var(--transition);
+        }
+
+        .skill-list li:hover {
+            color: var(--primary);
+            transform: translateX(5px);
         }
 
         .skill-list li::before {
             content: '▹';
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--primary);
             font-weight: bold;
         }
 
@@ -338,6 +395,53 @@
             padding: 30px 20px;
         }
 
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .contact-button {
+            text-decoration: none;
+            color: #667eea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1px;
+            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            width: 240px;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            color: #764ba2;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+        }
+
+        .contact-text {
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
@@ -370,8 +474,21 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-button {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <header>
@@ -379,12 +496,22 @@
             <img src="images/image.jpg" alt="Ibtissam Abdouni" class="profile-photo">
             <div class="header-info">
                 <h1>Ibtissam Abdouni</h1>
-                <p>Élève Ingénieure en Génie Logiciel - 5ème année</p>
-                <p>Recherche un PFE en Développement Informatique</p>
+                <p>Élève Ingénieure en <span class="highlight">Génie Logiciel</span> - 5ème année</p>
+                <p>Recherche un <span class="highlight">PFE</span> en Développement Informatique</p>
                 <div class="contact-links">
-                    <a href="mailto:ibtissamabdouni530@gmail.com">📧 Email</a>
-                    <a href="https://www.linkedin.com/in/ibtissam-abdouni-88a315254/" target="_blank">💼 LinkedIn</a>
-                    <a href="tel:0658946292">📱 06 58 94 62 92</a>
+                    <a href="mailto:ibtissamabdouni530@gmail.com">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibtissam-abdouni-88a315254/" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="tel:0658946292">
+                        <i class="fas fa-phone"></i> 06 58 94 62 92
+                    </a>
+                    <a href="https://github.com/ibtissam203" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -428,9 +555,7 @@
                         <span class="tech-tag">SQL Server</span>
                         <span class="tech-tag">Stripe API</span>
                     </div>
-                    <div class="demo-placeholder">
-                        📷 Démo à venir
-                    </div>
+                    
                 </div>
 
                 <div class="project-card">
@@ -443,9 +568,7 @@
                         <span class="tech-tag">MongoDB</span>
                         <span class="tech-tag">IA</span>
                     </div>
-                    <div class="demo-placeholder">
-                        📷 Démo à venir
-                    </div>
+                    
                 </div>
 
                 <div class="project-card">
@@ -458,9 +581,7 @@
                         <span class="tech-tag">Flask</span>
                         <span class="tech-tag">IA</span>
                     </div>
-                    <div class="demo-placeholder">
-                        📷 Démo à venir
-                    </div>
+                    
                 </div>
 
                
@@ -475,9 +596,8 @@
                         <span class="tech-tag">MySQL</span>
                         <span class="tech-tag">Bootstrap</span>
                     </div>
-                    <div class="demo-placeholder">
-                        📷 Démo à venir
-                    </div>
+                    
+                    
                 </div>
 
                 <div class="project-card">
@@ -488,9 +608,7 @@
                         <span class="tech-tag">Hibernate</span>
                         <span class="tech-tag">MySQL</span>
                     </div>
-                    <div class="demo-placeholder">
-                        📷 Démo à venir
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -587,18 +705,18 @@
                 <p style="font-size: 1.2em; margin-bottom: 35px; color: #555;">
                     Je suis disponible pour discuter d'opportunités de PFE ou de collaboration sur des projets innovants.
                 </p>
-                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0;">
-                    <a href="mailto:ibtissamabdouni530@gmail.com" style="text-decoration: none; color: #667eea; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em;">📧</div>
-                        <span style="font-weight: 600;">ibtissamabdouni530@gmail.com</span>
+                <div class="contact-buttons">
+                    <a href="mailto:ibtissamabdouni530@gmail.com" class="contact-button">
+                        <div class="contact-icon">📧</div>
+                        <span class="contact-text">ibtissamabdouni530@gmail.com</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/ibtissam-abdouni-88a315254/" target="_blank" style="text-decoration: none; color: #667eea; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em;">💼</div>
-                        <span style="font-weight: 600;">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/ibtissam-abdouni-88a315254/" target="_blank" class="contact-button">
+                        <div class="contact-icon">💼</div>
+                        <span class="contact-text">LinkedIn</span>
                     </a>
-                    <a href="tel:0658946292" style="text-decoration: none; color: #667eea; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em;">📱</div>
-                        <span style="font-weight: 600;">06 58 94 62 92</span>
+                    <a href="tel:0658946292" class="contact-button">
+                        <div class="contact-icon">📱</div>
+                        <span class="contact-text">06 58 94 62 92</span>
                     </a>
                 </div>
                 <p style="margin-top: 30px; color: #667eea; font-size: 1.1em; font-weight: 600;">
@@ -609,7 +727,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Ibtissam Abdouni - Tous droits réservés</p>
+        <p>&copy; 2025 Ibtissam Abdouni </p>
         <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
             Élève Ingénieure en Génie Logiciel | FST Mohammedia
         </p>
